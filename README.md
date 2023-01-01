@@ -1,0 +1,1 @@
+# Comparative-Machine-Learning-Models-to-Assessing-Landslide-Susceptibility_R
