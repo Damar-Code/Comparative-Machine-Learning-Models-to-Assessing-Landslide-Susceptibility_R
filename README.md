@@ -1,40 +1,46 @@
 # Comparative-Machine-Learning-Models-to-Assessing-Landslide-Susceptibility_R
 
-##INTRODUCTION
+## INTRODUCTION
 Landslide be able to defined as geological and hydrometeorological phenomena. Mountainous area with combined with high rainfall intensity and soil with poor structure will have higher landslide probability.  Under the dual background of human activities and natural transmutations, the occurrence rate of landslides are increased rapidly (Sun et al. 2021). The last Indonesian government report from 2018 East Java is considered as one of region with high landslide occurrence and cause of death (Figure 1). 
 
 ![image](https://user-images.githubusercontent.com/60123331/211156741-22493c5e-08e5-41e7-9abc-036409a725ce.png)
+
 Figure 1. Diagram of Total Fatalities and People Lost Caused by Landslide (Irawan et al. 2021).
+
 Providing the landslide susceptibility map is an example of increasing disaster preparedness to decrease the fatalities. This study is order to produce the high accuracy landslide susceptibility map using comparative machine learning models based on morphological feature. Instead of using single models, it is recommended to apply comparative models to increase the success rate of our predictions.  Based on similar study on landslide susceptibility assessment using machine learning, certain models are frequently use, such as, random forest (Shahzad et al. 2022), logistic regression (Sun et al. 2021; Trigila et al. 2015). Extreme Gradient Boosting (Shahzad et al. 2022), support vector machine (Merghadi et al. 2018; Shahzad et al. 2022; Wang et al. 2020), extreme gradient boosting (Sahin 2020).
 Morphological feature is the one of important factor to predict the landslide susceptibility, besides of the climate, geological, and anthropogenic aspect.  Previous study using many features, such as slope, elevation, aspect, distance to drainage, profile curvature, topographic wetness index, stream power index and others. Therefor this study try to identify which morphological feature that becomes significant factors.
 
-##STUDY AREA
+## STUDY AREA
 Study area in this study area have mountainous terrain cover different tree mountains in the middle east of Java Island there is, Anjasmoro-Arjuno-Welirang. Developing machine learning is required the training data for the learning and validation purposes. Along 2017-2022 all of landslide data as a training data have been compiled 650 landslide data occurrences from Google Earth Imagery, field observation, and from government data. Beside that 650 non-landslide also compiled as training data, considering the geomorphological feature.
  
 ![image](https://user-images.githubusercontent.com/60123331/211156786-69f24485-3372-4e22-92be-a2d1aad853bf.png) 
+
 Figure 2. Training and Testing Dataset
 
 	Landslide and non-landslide training dataset are shown on this pictures below.  Landslide data in this study are obtained from field observations, government data and manual interpretations from Google Earth Imagery.
   
-  ![Research Area _resize](https://user-images.githubusercontent.com/60123331/211156933-9ec1cc56-5e8f-4e40-b262-0923b74c22ea.png)
+![Research Area _resize](https://user-images.githubusercontent.com/60123331/211156933-9ec1cc56-5e8f-4e40-b262-0923b74c22ea.png)
+
 Figure 3. Landslides and Non-landslide data Distribution
 
-#METHOD
+## METHOD
 This study using morphological feature as a predictor, such as, Elevation, Aspect, Distant to Drainage, Topographic Position Index, Slope, Slope Length, Topographic Position Index, Stream Power Index, Profile Curvature, Plan Curvature, Relative Slope Position, Slope Length, Convergence Index, and Landform (Figure 4). All those morphological features are compute through “RSAGA” package which is only need variable there is Elevation. ALOS World 3D (AW3D30) DEM with 30x30 resolution using here as an Elevation model, considering the quality of the data that keep corrected every years by JAXA/EORC as an Aerospace Exploration Agency from Japan.
 
 ![Spatial Parameters_smallsize](https://user-images.githubusercontent.com/60123331/211157275-a1b4590a-5b9e-424e-9ab9-2f9aa8246980.png)
+
 Figure 4 . Morphological Features
 
 Mostly the process in Exploratory Data Analytics into Machine Learning Modeling is using “caret” package, however for some step like imputation and feature selection also applied another packages, like “missForest” and “VIF”. The whole steps on this study is shown by this figure below.
 
 ![Flow Chart-Comparative Machine Learning Methode](https://user-images.githubusercontent.com/60123331/211157308-828cd597-e331-4850-8f9a-d89e4cc92c1e.png)
+
 Figure 5 . Image of workflow
 
-###Data Preparation and Preprocess
+### Data Preparation and Preprocess
 Before performing feature selection there is tree steps that commonly use in Machine Learning modeling work flow, such as, 1) imputation, 2) preprocess, and 3) splitting the dataset. Imputation in this study using Random Forest algorithm by “missForest”.  Preprocess using normalization method and for splitting dataset with 70 % training dataset and 30% for testing dataset.
 Normalization is data preprocessing step to produce standard features value. It is crucial steps in before conducted the machine learning models. At the There are view method for produce normalized value, this study using Min-Max Normalization method. The value of each factors standardized trough the range of minimum to maximum by 0 to 1 from its feature. 
 
-###Feature Selection
+### Feature Selection
 The objective of feature selection includes: 1) simplification of models, 2) reduce the time of processing, 3) avoid the curve of dimensionality, and 4) reducing overfitting. In this study using two method for feature selection, involve Recursive Feature Elimination (RFE) and Variance Inflation Factor (VIF). Those two method is necessary to know the significant variable to predict landslide and to avoid the multicollinearity.
 
 ![Variable Importance](https://user-images.githubusercontent.com/60123331/211157333-4b641720-ef43-4f77-9124-18035d6a653f.png)
@@ -45,13 +51,15 @@ Selected features from RFE need to be check whether it is has multicollinearity 
 ![VIF_Multicolinearility](https://user-images.githubusercontent.com/60123331/211157357-3d4dd755-6569-4083-b0b3-de20a53e6015.png)
 Figure 5 . Multicollinearity Detection
 
-##RESULT AND DISCUSSIONE
+## RESULT AND DISCUSSIONE
  “caret” provide us the comprehensive framework to directly using multiple Machine Learning model in R. In this case Random Forest, XGBoost, Support Vector Machine, and Logit Boosting Machine are selected. The result shows that Random Forest have a highest accuracy in term of ROC.  But in this case predict the landslide need high sensitivity as well. Either way, the validation step in the end of this workflow will determine which model have the highest accuracy and sensitivity. 
 
-![Comparative result_resize](https://user-images.githubusercontent.com/60123331/211158101-ed20d0c5-1584-4b8d-bccf-013183df7849.png)
+
+![Comparative result_resize](https://user-images.githubusercontent.com/60123331/211158839-3ac9f56b-1de5-456d-a0af-bd9e9700f229.png)
+
 Figure 7 . Landslide Susceptibility Map
 
-##VALIDATION
+## VALIDATION
 In this study ROC used to measure the accuracy of landslide susceptibility  prediction model.  ROC is widely use to evaluate the evaluate the machine learning model performance. The AUC value of ROC quantitatively represent the accuracy in range 0 until 1 which is higher value mean the model is has high accuracy and reliability. Higher AUC value than 0.7 is considered the model is reliable. 
 All of Machine Learning models in this study  produced AUC values above 0.7 it means all those model are reliable for landslide susceptibility assessment. However, the variation in AUC values of the model was relatively high, AUCs of 0.86 XGBoost, 0.85 in Random Forest, 0.84 in SVM, and 0.82 in Boosted Logistic Regression (Figure 8). This validation step using 30% (390 samples) from the dataset proportion. Using “pROC” library in R the AUC value directly able to extract from models that run in “caret”.
 
@@ -60,10 +68,11 @@ Figure 8. ROC curves of modeled result using validation data
 
 Based on AUC value, XGboost found as the best model rather than the other. Therefore, it is mandatory to know which morphological features are the most significant predictors. “caret” provide the function to extract the rank of variable importance. Slope and Stream Power Index are found as a most significant morphological features to predict landslide susceptibility (Figure 9). 
 
-![Variablr Importance - XGBoost](https://user-images.githubusercontent.com/60123331/211158216-f1f5f99c-58d5-47ce-953e-c1219ee60a44.png)
+![image](https://user-images.githubusercontent.com/60123331/211158472-847e830c-a98b-4915-aedb-ca909c752699.png)
+
 Figure 9. Variable Importance from XGBoost Model
 
-CONCLUSION
+## CONCLUSION
 Comparative models using ROC to shows that XGBoost found as the best models with 0.86 AUC value, rather than Random Forest,  SVM, and in Boosted Logistic Regression. While for the morphological features  the importance variable to predict landslide susceptibility level respectively are, Slope, Stream Power Index, Distance to Drainage, Aspect, Elevation, Topographic Position Index, Relative Slope Position, Topographic Wetness Index, and Profile Curvature.  
 REFERENCES 
 Irawan, L. Y., Sumarmi, S. Bachri, D. Panoto, I. H. Pradana, and R. Faizal. 2021. “Landslides Susceptibility Mapping Based on Geospatial Data and Geomorphic Attributes (a Case Study: Pacet, Mojokerto, East Java).” in IOP Conference Series: Earth and Environmental Science.
