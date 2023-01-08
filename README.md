@@ -5,7 +5,7 @@
 ## INTRODUCTION
 Landslide be able to defined as geological and hydrometeorological phenomena. Mountainous area with combined with high rainfall intensity and soil with poor structure will have higher landslide probability.  Under the dual background of human activities and natural transmutations, the occurrence rate of landslides are increased rapidly (Sun et al. 2021). The last Indonesian government report from 2018 East Java is considered as one of region with high landslide occurrence and cause of death (Figure 1). 
 
-![image](https://user-images.githubusercontent.com/60123331/211156741-22493c5e-08e5-41e7-9abc-036409a725ce.png)
+![landslide history](https://user-images.githubusercontent.com/60123331/211179850-b4110380-361d-47db-9923-526c6e871086.png)
 
 Figure 1. Diagram of Total Fatalities and People Lost Caused by Landslide (Irawan et al. 2021).
 
@@ -20,7 +20,8 @@ Study area in this study area have mountainous terrain cover different tree moun
 
 Figure 2. Training and Testing Dataset
 
-	Landslide and non-landslide training dataset are shown on this pictures below.  Landslide data in this study are obtained from field observations, government data and manual interpretations from Google Earth Imagery.
+
+Landslide and non-landslide training dataset are shown on this pictures below.  Landslide data in this study are obtained from field observations, government data and manual interpretations from Google Earth Imagery.
   
 ![Research Area _resize](https://user-images.githubusercontent.com/60123331/211156933-9ec1cc56-5e8f-4e40-b262-0923b74c22ea.png)
 
@@ -30,13 +31,11 @@ Figure 3. Landslides and Non-landslide data Distribution
 This study using morphological feature as a predictor, such as, Elevation, Aspect, Distant to Drainage, Topographic Position Index, Slope, Slope Length, Topographic Position Index, Stream Power Index, Profile Curvature, Plan Curvature, Relative Slope Position, Slope Length, Convergence Index, and Landform (Figure 4). All those morphological features are compute through “RSAGA” package which is only need variable there is Elevation. ALOS World 3D (AW3D30) DEM with 30x30 resolution using here as an Elevation model, considering the quality of the data that keep corrected every years by JAXA/EORC as an Aerospace Exploration Agency from Japan.
 
 ![Spatial Parameters_smallsize](https://user-images.githubusercontent.com/60123331/211157275-a1b4590a-5b9e-424e-9ab9-2f9aa8246980.png)
-
 Figure 4 . Morphological Features
 
 Mostly the process in Exploratory Data Analytics into Machine Learning Modeling is using “caret” package, however for some step like imputation and feature selection also applied another packages, like “missForest” and “VIF”. The whole steps on this study is shown by this figure below.
 
 ![Flow Chart-Comparative Machine Learning Methode](https://user-images.githubusercontent.com/60123331/211157308-828cd597-e331-4850-8f9a-d89e4cc92c1e.png)
-
 Figure 5 . Image of workflow
 
 ### Data Preparation and Preprocess
@@ -61,7 +60,6 @@ Figure 5 . Multicollinearity Detection
 
 
 ![Comparative result_resize](https://user-images.githubusercontent.com/60123331/211158839-3ac9f56b-1de5-456d-a0af-bd9e9700f229.png)
-
 Figure 7 . Landslide Susceptibility Map
 
 ## VALIDATION
@@ -69,6 +67,7 @@ In this study ROC used to measure the accuracy of landslide susceptibility  pred
 All of Machine Learning models in this study  produced AUC values above 0.7 it means all those model are reliable for landslide susceptibility assessment. However, the variation in AUC values of the model was relatively high, AUCs of 0.86 XGBoost, 0.85 in Random Forest, 0.84 in SVM, and 0.82 in Boosted Logistic Regression (Figure 8). This validation step using 30% (390 samples) from the dataset proportion. Using “pROC” library in R the AUC value directly able to extract from models that run in “caret”.
 
 ![prediction_ROC](https://user-images.githubusercontent.com/60123331/211158187-675202f0-a987-4f36-a78b-114670a6774b.png)
+
 Figure 8. ROC curves of modeled result using validation data
 
 Based on AUC value, XGboost found as the best model rather than the other. Therefore, it is mandatory to know which morphological features are the most significant predictors. “caret” provide the function to extract the rank of variable importance. Slope and Stream Power Index are found as a most significant morphological features to predict landslide susceptibility (Figure 9). 
@@ -81,11 +80,10 @@ Figure 9. Variable Importance from XGBoost Model
 Comparative models using ROC to shows that XGBoost found as the best models with 0.86 AUC value, rather than Random Forest,  SVM, and in Boosted Logistic Regression. While for the morphological features  the importance variable to predict landslide susceptibility level respectively are, Slope, Stream Power Index, Distance to Drainage, Aspect, Elevation, Topographic Position Index, Relative Slope Position, Topographic Wetness Index, and Profile Curvature.  
 
 ## REFERENCES 
-Irawan, L. Y., Sumarmi, S. Bachri, D. Panoto, I. H. Pradana, and R. Faizal. 2021. “Landslides Susceptibility Mapping Based on Geospatial Data and Geomorphic 	Attributes (a Case Study: Pacet, Mojokerto, East Java).” in IOP Conference Series: Earth and Environmental Science.
-Merghadi, Abdelaziz, Boumezbeur Abderrahmane, and Dieu Tien Bui. 2018. “Landslide Susceptibility Assessment at Mila Basin (Algeria): A Comparative Assessment of Prediction Capability of Advanced Machine Learning Methods.” ISPRS International Journal of Geo-Information. doi: 10.3390/ijgi7070268.
-Sahin, Emrehan Kutlug. 2020. “Assessing the Predictive Capability of Ensemble Tree Methods for Landslide Susceptibility Mapping Using XGBoost, Gradient Boosting Machine, and Random Forest.” SN Applied Sciences. doi: 10.1007/s42452-020-3060-1.
-Shahzad, Naeem, Xiaoli Ding, and Sawaid Abbas. 2022. “A Comparative Assessment of Machine Learning Models for Landslide Susceptibility Mapping in the Rugged Terrain of Northern Pakistan.” Applied Sciences (Switzerland). doi: 10.3390/app12052280.
-Sun, Deliang, Jiahui Xu, Haijia Wen, and Danzhou Wang. 2021. “Assessment of Landslide Susceptibility Mapping Based on Bayesian Hyperparameter Optimization: A Comparison between Logistic Regression and Random Forest.” Engineering Geology 281(May 2020):105972. doi: 10.1016/j.enggeo.2020.105972.
-Trigila, Alessandro, Carla Iadanza, Carlo Esposito, and Gabriele Scarascia-Mugnozza. 2015. “Comparison of Logistic Regression and Random Forests Techniques for Shallow Landslide Susceptibility Assessment in Giampilieri (NE Sicily, Italy).” Geomorphology 249(August 2018):119–36. doi: 10.1016/j.geomorph.2015.06.001.
-Wang, Yue, Deliang Sun, Haijia Wen, Hong Zhang, and Fengtai Zhang. 2020. “Comparison of Random Forest Model and Frequency Ratio Model for Landslide Susceptibility Mapping (LSM) in Yunyang County (Chongqing, China).” International Journal of Environmental Research and Public Health. doi: 10.3390/ijerph17124206.
-
+- Irawan, L. Y., Sumarmi, S. Bachri, D. Panoto, I. H. Pradana, and R. Faizal. 2021. “Landslides Susceptibility Mapping Based on Geospatial Data and Geomorphic 	Attributes (a Case Study: Pacet, Mojokerto, East Java).” in IOP Conference Series: Earth and Environmental Science.
+- Merghadi, Abdelaziz, Boumezbeur Abderrahmane, and Dieu Tien Bui. 2018. “Landslide Susceptibility Assessment at Mila Basin (Algeria): A Comparative Assessment of Prediction Capability of Advanced Machine Learning Methods.” ISPRS International Journal of Geo-Information. doi: 10.3390/ijgi7070268.
+- Sahin, Emrehan Kutlug. 2020. “Assessing the Predictive Capability of Ensemble Tree Methods for Landslide Susceptibility Mapping Using XGBoost, Gradient Boosting Machine, and Random Forest.” SN Applied Sciences. doi: 10.1007/s42452-020-3060-1.
+- Shahzad, Naeem, Xiaoli Ding, and Sawaid Abbas. 2022. “A Comparative Assessment of Machine Learning Models for Landslide Susceptibility Mapping in the Rugged Terrain of Northern Pakistan.” Applied Sciences (Switzerland). doi: 10.3390/app12052280.
+- Sun, Deliang, Jiahui Xu, Haijia Wen, and Danzhou Wang. 2021. “Assessment of Landslide Susceptibility Mapping Based on Bayesian Hyperparameter Optimization: A Comparison between Logistic Regression and Random Forest.” Engineering Geology 281(May 2020):105972. doi: 10.1016/j.enggeo.2020.105972.
+- Trigila, Alessandro, Carla Iadanza, Carlo Esposito, and Gabriele Scarascia-Mugnozza. 2015. “Comparison of Logistic Regression and Random Forests Techniques for Shallow Landslide Susceptibility Assessment in Giampilieri (NE Sicily, Italy).” Geomorphology 249(August 2018):119–36. doi: 10.1016/j.geomorph.2015.06.001.
+- Wang, Yue, Deliang Sun, Haijia Wen, Hong Zhang, and Fengtai Zhang. 2020. “Comparison of Random Forest Model and Frequency Ratio Model for Landslide Susceptibility Mapping (LSM) in Yunyang County (Chongqing, China).” International Journal of Environmental Research and Public Health. doi: 10.3390/ijerph17124206.
