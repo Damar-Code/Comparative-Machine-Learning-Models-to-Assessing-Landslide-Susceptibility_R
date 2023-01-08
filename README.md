@@ -48,34 +48,34 @@ The objective of feature selection includes: 1) simplification of models, 2) red
 
 ![Variable Importance](https://user-images.githubusercontent.com/60123331/211179316-ab9f79f2-f1f6-41ba-af72-0712b884fc89.png)
 
-Figure 4 . Variable Importance
+Figure 6 . Variable Importance
 
-Selected features from RFE need to be check whether it is has multicollinearity or not. Figure 5 below show how VIF able to detect the multicollinearity of the predictors. A VIF value greater than 10 considered to have a serious multicollinearity problem.
+Selected features from RFE need to be check whether it is has multicollinearity or not. Figure 7 below show how VIF able to detect the multicollinearity of the predictors. A VIF value greater than 10 considered to have a serious multicollinearity problem.
 
 ![VIF_Multicolinearility](https://user-images.githubusercontent.com/60123331/211179329-c7f1f5a9-fcda-479b-8692-034bd6aecf47.png)
 
-Figure 5 . Multicollinearity Detection
+Figure 7 . Multicollinearity Detection
 
 ## RESULT AND DISCUSSIONE
  “caret” provide us the comprehensive framework to directly using multiple Machine Learning model in R. In this case Random Forest, XGBoost, Support Vector Machine, and Logit Boosting Machine are selected. The result shows that Random Forest have a highest accuracy in term of ROC.  But in this case predict the landslide need high sensitivity as well. Either way, the validation step in the end of this workflow will determine which model have the highest accuracy and sensitivity. 
 
 
 ![Comparative result_resize](https://user-images.githubusercontent.com/60123331/211158839-3ac9f56b-1de5-456d-a0af-bd9e9700f229.png)
-Figure 7 . Landslide Susceptibility Map
+Figure 8 . Landslide Susceptibility Map
 
 ## VALIDATION
 In this study ROC used to measure the accuracy of landslide susceptibility  prediction model.  ROC is widely use to evaluate the evaluate the machine learning model performance. The AUC value of ROC quantitatively represent the accuracy in range 0 until 1 which is higher value mean the model is has high accuracy and reliability. Higher AUC value than 0.7 is considered the model is reliable. 
-All of Machine Learning models in this study  produced AUC values above 0.7 it means all those model are reliable for landslide susceptibility assessment. However, the variation in AUC values of the model was relatively high, AUCs of 0.86 XGBoost, 0.85 in Random Forest, 0.84 in SVM, and 0.82 in Boosted Logistic Regression (Figure 8). This validation step using 30% (390 samples) from the dataset proportion. Using “pROC” library in R the AUC value directly able to extract from models that run in “caret”.
+All of Machine Learning models in this study  produced AUC values above 0.7 it means all those model are reliable for landslide susceptibility assessment. However, the variation in AUC values of the model was relatively high, AUCs of 0.86 XGBoost, 0.85 in Random Forest, 0.84 in SVM, and 0.82 in Boosted Logistic Regression (Figure 9). This validation step using 30% (390 samples) from the dataset proportion. Using “pROC” library in R the AUC value directly able to extract from models that run in “caret”.
 
 ![prediction_ROC](https://user-images.githubusercontent.com/60123331/211158187-675202f0-a987-4f36-a78b-114670a6774b.png)
 
-Figure 8. ROC curves of modeled result using validation data
+Figure 9. ROC curves of modeled result using validation data
 
-Based on AUC value, XGboost found as the best model rather than the other. Therefore, it is mandatory to know which morphological features are the most significant predictors. “caret” provide the function to extract the rank of variable importance. Slope and Stream Power Index are found as a most significant morphological features to predict landslide susceptibility (Figure 9). 
+Based on AUC value, XGboost found as the best model rather than the other. Therefore, it is mandatory to know which morphological features are the most significant predictors. “caret” provide the function to extract the rank of variable importance. Slope and Stream Power Index are found as a most significant morphological features to predict landslide susceptibility (Figure 10). 
 
 ![Variablr Importance - XGBoost](https://user-images.githubusercontent.com/60123331/211179363-9372ee2c-038a-42fa-9686-8f949217d0aa.png)
 
-Figure 9. Variable Importance from XGBoost Model
+Figure 10. Variable Importance from XGBoost Model
 
 ## CONCLUSION
 Comparative models using ROC to shows that XGBoost found as the best models with 0.86 AUC value, rather than Random Forest,  SVM, and in Boosted Logistic Regression. While for the morphological features  the importance variable to predict landslide susceptibility level respectively are, Slope, Stream Power Index, Distance to Drainage, Aspect, Elevation, Topographic Position Index, Relative Slope Position, Topographic Wetness Index, and Profile Curvature.  
