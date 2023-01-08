@@ -30,7 +30,8 @@ Figure 3. Landslides and Non-landslide data Distribution
 ## METHOD
 This study using morphological feature as a predictor, such as, Elevation, Aspect, Distant to Drainage, Topographic Position Index, Slope, Slope Length, Topographic Position Index, Stream Power Index, Profile Curvature, Plan Curvature, Relative Slope Position, Slope Length, Convergence Index, and Landform (Figure 4). All those morphological features are compute through “RSAGA” package which is only need variable there is Elevation. ALOS World 3D (AW3D30) DEM with 30x30 resolution using here as an Elevation model, considering the quality of the data that keep corrected every years by JAXA/EORC as an Aerospace Exploration Agency from Japan.
 
-![Spatial Parameters_smallsize](https://user-images.githubusercontent.com/60123331/211157275-a1b4590a-5b9e-424e-9ab9-2f9aa8246980.png)
+![Spatial Parameters_smallsize](https://user-images.githubusercontent.com/60123331/211181771-3b862861-973a-4dea-b84e-40b33a859239.png)
+
 Figure 4 . Morphological Features
 
 Mostly the process in Exploratory Data Analytics into Machine Learning Modeling is using “caret” package, however for some step like imputation and feature selection also applied another packages, like “missForest” and “VIF”. The whole steps on this study is shown by this figure below.
