@@ -1,5 +1,7 @@
 # Comparative-Machine-Learning-Models-to-Assessing-Landslide-Susceptibility_R
 
+
+
 ## INTRODUCTION
 Landslide be able to defined as geological and hydrometeorological phenomena. Mountainous area with combined with high rainfall intensity and soil with poor structure will have higher landslide probability.  Under the dual background of human activities and natural transmutations, the occurrence rate of landslides are increased rapidly (Sun et al. 2021). The last Indonesian government report from 2018 East Java is considered as one of region with high landslide occurrence and cause of death (Figure 1). 
 
@@ -8,12 +10,13 @@ Landslide be able to defined as geological and hydrometeorological phenomena. Mo
 Figure 1. Diagram of Total Fatalities and People Lost Caused by Landslide (Irawan et al. 2021).
 
 Providing the landslide susceptibility map is an example of increasing disaster preparedness to decrease the fatalities. This study is order to produce the high accuracy landslide susceptibility map using comparative machine learning models based on morphological feature. Instead of using single models, it is recommended to apply comparative models to increase the success rate of our predictions.  Based on similar study on landslide susceptibility assessment using machine learning, certain models are frequently use, such as, random forest (Shahzad et al. 2022), logistic regression (Sun et al. 2021; Trigila et al. 2015). Extreme Gradient Boosting (Shahzad et al. 2022), support vector machine (Merghadi et al. 2018; Shahzad et al. 2022; Wang et al. 2020), extreme gradient boosting (Sahin 2020).
+
 Morphological feature is the one of important factor to predict the landslide susceptibility, besides of the climate, geological, and anthropogenic aspect.  Previous study using many features, such as slope, elevation, aspect, distance to drainage, profile curvature, topographic wetness index, stream power index and others. Therefor this study try to identify which morphological feature that becomes significant factors.
 
 ## STUDY AREA
 Study area in this study area have mountainous terrain cover different tree mountains in the middle east of Java Island there is, Anjasmoro-Arjuno-Welirang. Developing machine learning is required the training data for the learning and validation purposes. Along 2017-2022 all of landslide data as a training data have been compiled 650 landslide data occurrences from Google Earth Imagery, field observation, and from government data. Beside that 650 non-landslide also compiled as training data, considering the geomorphological feature.
  
-![image](https://user-images.githubusercontent.com/60123331/211156786-69f24485-3372-4e22-92be-a2d1aad853bf.png) 
+![Trainingdataset_bar chart](https://user-images.githubusercontent.com/60123331/211179341-66efbfde-51e3-4995-b411-b93191aadcfc.png)
 
 Figure 2. Training and Testing Dataset
 
@@ -43,12 +46,14 @@ Normalization is data preprocessing step to produce standard features value. It 
 ### Feature Selection
 The objective of feature selection includes: 1) simplification of models, 2) reduce the time of processing, 3) avoid the curve of dimensionality, and 4) reducing overfitting. In this study using two method for feature selection, involve Recursive Feature Elimination (RFE) and Variance Inflation Factor (VIF). Those two method is necessary to know the significant variable to predict landslide and to avoid the multicollinearity.
 
-![Variable Importance](https://user-images.githubusercontent.com/60123331/211157333-4b641720-ef43-4f77-9124-18035d6a653f.png)
+![Variable Importance](https://user-images.githubusercontent.com/60123331/211179316-ab9f79f2-f1f6-41ba-af72-0712b884fc89.png)
+
 Figure 4 . Variable Importance
 
 Selected features from RFE need to be check whether it is has multicollinearity or not. Figure 5 below show how VIF able to detect the multicollinearity of the predictors. A VIF value greater than 10 considered to have a serious multicollinearity problem.
 
-![VIF_Multicolinearility](https://user-images.githubusercontent.com/60123331/211157357-3d4dd755-6569-4083-b0b3-de20a53e6015.png)
+![VIF_Multicolinearility](https://user-images.githubusercontent.com/60123331/211179329-c7f1f5a9-fcda-479b-8692-034bd6aecf47.png)
+
 Figure 5 . Multicollinearity Detection
 
 ## RESULT AND DISCUSSIONE
@@ -68,14 +73,15 @@ Figure 8. ROC curves of modeled result using validation data
 
 Based on AUC value, XGboost found as the best model rather than the other. Therefore, it is mandatory to know which morphological features are the most significant predictors. “caret” provide the function to extract the rank of variable importance. Slope and Stream Power Index are found as a most significant morphological features to predict landslide susceptibility (Figure 9). 
 
-![image](https://user-images.githubusercontent.com/60123331/211158472-847e830c-a98b-4915-aedb-ca909c752699.png)
+![Variablr Importance - XGBoost](https://user-images.githubusercontent.com/60123331/211179363-9372ee2c-038a-42fa-9686-8f949217d0aa.png)
 
 Figure 9. Variable Importance from XGBoost Model
 
 ## CONCLUSION
 Comparative models using ROC to shows that XGBoost found as the best models with 0.86 AUC value, rather than Random Forest,  SVM, and in Boosted Logistic Regression. While for the morphological features  the importance variable to predict landslide susceptibility level respectively are, Slope, Stream Power Index, Distance to Drainage, Aspect, Elevation, Topographic Position Index, Relative Slope Position, Topographic Wetness Index, and Profile Curvature.  
-REFERENCES 
-Irawan, L. Y., Sumarmi, S. Bachri, D. Panoto, I. H. Pradana, and R. Faizal. 2021. “Landslides Susceptibility Mapping Based on Geospatial Data and Geomorphic Attributes (a Case Study: Pacet, Mojokerto, East Java).” in IOP Conference Series: Earth and Environmental Science.
+
+## REFERENCES 
+Irawan, L. Y., Sumarmi, S. Bachri, D. Panoto, I. H. Pradana, and R. Faizal. 2021. “Landslides Susceptibility Mapping Based on Geospatial Data and Geomorphic 	Attributes (a Case Study: Pacet, Mojokerto, East Java).” in IOP Conference Series: Earth and Environmental Science.
 Merghadi, Abdelaziz, Boumezbeur Abderrahmane, and Dieu Tien Bui. 2018. “Landslide Susceptibility Assessment at Mila Basin (Algeria): A Comparative Assessment of Prediction Capability of Advanced Machine Learning Methods.” ISPRS International Journal of Geo-Information. doi: 10.3390/ijgi7070268.
 Sahin, Emrehan Kutlug. 2020. “Assessing the Predictive Capability of Ensemble Tree Methods for Landslide Susceptibility Mapping Using XGBoost, Gradient Boosting Machine, and Random Forest.” SN Applied Sciences. doi: 10.1007/s42452-020-3060-1.
 Shahzad, Naeem, Xiaoli Ding, and Sawaid Abbas. 2022. “A Comparative Assessment of Machine Learning Models for Landslide Susceptibility Mapping in the Rugged Terrain of Northern Pakistan.” Applied Sciences (Switzerland). doi: 10.3390/app12052280.
