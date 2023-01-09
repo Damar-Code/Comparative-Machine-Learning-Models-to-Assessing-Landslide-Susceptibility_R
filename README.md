@@ -57,7 +57,7 @@ Selected features from RFE need to be check whether it is has multicollinearity 
 
 Figure 7 . Multicollinearity Detection
 
-## RESULT AND DISCUSSIONE
+## RESULT AND DISCUSSION
  “caret” provide us the comprehensive framework to directly using multiple Machine Learning model in R. In this case Random Forest, XGBoost, Support Vector Machine, and Logit Boosting Machine are selected. The result shows that Random Forest have a highest accuracy in term of ROC.  But in this case predict the landslide need high sensitivity as well. Either way, the validation step in the end of this workflow will determine which model have the highest accuracy and sensitivity. 
 
 
