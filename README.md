@@ -36,8 +36,9 @@ Figure 4 . Morphological Features
 
 Mostly the process in Exploratory Data Analytics into Machine Learning Modeling is using “caret” package, however for some step like imputation and feature selection also applied another packages, like “missForest” and “VIF”. The whole steps on this study is shown by this figure below.
 
-![Flow Chart-Comparative Machine Learning Methode](https://user-images.githubusercontent.com/60123331/211157308-828cd597-e331-4850-8f9a-d89e4cc92c1e.png)
-Figure 5 . Image of workflow
+![Flow Chart-Comparative Machine Learning Methode](https://user-images.githubusercontent.com/60123331/211374914-d16c1e1b-1cd7-4ac2-ab04-e088a93694c9.png)
+
+Figure 5 . Study workflow
 
 ### Data Preparation and Preprocess
 Before performing feature selection there is tree steps that commonly use in Machine Learning modeling work flow, such as, 1) imputation, 2) preprocess, and 3) splitting the dataset. Imputation in this study using Random Forest algorithm by “missForest”.  Preprocess using normalization method and for splitting dataset with 70 % training dataset and 30% for testing dataset.
