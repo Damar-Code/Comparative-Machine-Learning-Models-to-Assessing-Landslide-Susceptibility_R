@@ -3,7 +3,7 @@
 
 
 ## INTRODUCTION
-Landslide be able to defined as geological and hydrometeorological phenomena. Mountainous area with combined with high rainfall intensity and soil with poor structure will have higher landslide probability.  Under the dual background of human activities and natural transmutations, the occurrence rate of landslides are increased rapidly (Sun et al. 2021). The last Indonesian government report from 2018 East Java is considered as one of region with high landslide occurrence and cause of death (Figure 1). 
+Landslide be able to defined as geological and hydrometeorological phenomena. Mountainous area combined with high rainfall intensity and soil with poor structure will have higher landslide probability.  Under the dual background of human activities and natural transmutations, the occurrence rate of landslides are increased rapidly (Sun et al. 2021). The last Indonesian government report from 2018 East Java was considered as one of region with high landslide occurrence and cause of death (Figure 1). 
 
 ![landslide history](https://user-images.githubusercontent.com/60123331/211179850-b4110380-361d-47db-9923-526c6e871086.png)
 
@@ -14,7 +14,7 @@ Providing the landslide susceptibility map is an example of increasing disaster 
 Morphological feature is the one of important factor to predict the landslide susceptibility, besides of the climate, geological, and anthropogenic aspect.  Previous study using many features, such as slope, elevation, aspect, distance to drainage, profile curvature, topographic wetness index, stream power index and others. Therefor this study try to identify which morphological feature that becomes significant factors.
 
 ## STUDY AREA
-Study area in this study area have mountainous terrain cover different tree mountains in the middle east of Java Island there is, Anjasmoro-Arjuno-Welirang. Developing machine learning is required the training data for the learning and validation purposes. Along 2017-2022 all of landslide data as a training data have been compiled 650 landslide data occurrences from Google Earth Imagery, field observation, and from government data. Beside that 650 non-landslide also compiled as training data, considering the geomorphological feature.
+This study area have mountainous terrain, cover different tree mountains in the middle east of Java Island there is: Anjasmoro, Arjuno, and Welirang. Developing machine learning models is required the training data for the learning and validation purposes. There are 650 landslide data occurances along 2017-2022 as the training data, compiled from Google Earth Imagery, field observation, and from government data. Beside that 650 non-landslide also compiled as training data, considering the geomorphological feature.
  
 ![Trainingdataset_bar chart](https://user-images.githubusercontent.com/60123331/211179341-66efbfde-51e3-4995-b411-b93191aadcfc.png)
 
@@ -28,7 +28,7 @@ Landslide and non-landslide training dataset are shown on this pictures below.  
 Figure 3. Landslides and Non-landslide data Distribution
 
 ## METHOD
-This study using morphological feature as a predictor, such as, Elevation, Aspect, Distant to Drainage, Topographic Position Index, Slope, Slope Length, Topographic Position Index, Stream Power Index, Profile Curvature, Plan Curvature, Relative Slope Position, Slope Length, Convergence Index, and Landform (Figure 4). All those morphological features are compute through “RSAGA” package which is only need variable there is Elevation. ALOS World 3D (AW3D30) DEM with 30x30 resolution using here as an Elevation model, considering the quality of the data that keep corrected every years by JAXA/EORC as an Aerospace Exploration Agency from Japan.
+This study using morphological feature as a predictor, such as, Elevation, Aspect, Distant to Drainage, Topographic Position Index, Slope, Slope Length, Topographic Position Index, Stream Power Index, Profile Curvature, Plan Curvature, Relative Slope Position, Slope Length, Convergence Index, and Landform (Figure 4). All those morphological features are compute through “RSAGA” package which is only need variable there is Elevation. The Elevation model on this studi using ALOS World 3D (AW3D30) DEM with 30x30 resolution, considering the quality of the data that keep corrected every years by JAXA/EORC as an Aerospace Exploration Agency from Japan.
 
 ![Spatial Parameters_smallsize](https://user-images.githubusercontent.com/60123331/211181771-3b862861-973a-4dea-b84e-40b33a859239.png)
 
