@@ -13,7 +13,6 @@ Providing the landslide susceptibility map is an example of increasing disaster 
 
 Morphological feature is the one of important factor to predict the landslide susceptibility, besides of the climate, geological, and anthropogenic aspect.  Previous study using many features, such as slope, elevation, aspect, distance to drainage, profile curvature, topographic wetness index, stream power index and others. Therefor this study try to identify which morphological feature that becomes significant factors.
 
-## STUDY AREA
 This study area have mountainous terrain, cover different tree mountains in the middle east of Java Island there is: Anjasmoro, Arjuno, and Welirang. Developing machine learning models is required the training data for the learning and validation purposes. There are 650 landslide data occurances along 2017-2022 as the training data, compiled from Google Earth Imagery, field observation, and from government data. Beside that 650 non-landslide also compiled as training data, considering the geomorphological feature.
  
 ![Trainingdataset_bar chart](https://user-images.githubusercontent.com/60123331/211179341-66efbfde-51e3-4995-b411-b93191aadcfc.png)
@@ -28,13 +27,13 @@ Landslide and non-landslide training dataset are shown on this pictures below.  
 Figure 3. Landslides and Non-landslide data Distribution
 
 ## METHOD
-This study using morphological feature as a predictor, such as, Elevation, Aspect, Distant to Drainage, Topographic Position Index, Slope, Slope Length, Topographic Position Index, Stream Power Index, Profile Curvature, Plan Curvature, Relative Slope Position, Slope Length, Convergence Index, and Landform (Figure 4). All those morphological features are compute through “RSAGA” package which is only need variable there is Elevation. The Elevation model on this studi using ALOS World 3D (AW3D30) DEM with 30x30 resolution, considering the quality of the data that keep corrected every years by JAXA/EORC as an Aerospace Exploration Agency from Japan.
+This study using morphological feature as a predictor, such as, Elevation, Aspect, Distant to Drainage, Topographic Position Index, Slope, Slope Length, Topographic Position Index, Stream Power Index, Profile Curvature, Plan Curvature, Relative Slope Position, Slope Length, Convergence Index, and Landform (Figure 4). All those morphological features are compute through “RSAGA” package which is only need variable there is Elevation. The Elevation model in this study using ALOS World 3D (AW3D30) DEM with 30x30 resolution, considering the quality of the data that keep corrected every years by JAXA/EORC as an Aerospace Exploration Agency from Japan.
 
 ![Spatial Parameters_smallsize](https://user-images.githubusercontent.com/60123331/211181771-3b862861-973a-4dea-b84e-40b33a859239.png)
 
 Figure 4 . Morphological Features
 
-Mostly the process in Exploratory Data Analytics into Machine Learning Modeling is using “caret” package, however for some step like imputation and feature selection also applied another packages, like “missForest” and “VIF”. The whole steps on this study is shown by this figure below.
+Mostly the process in Exploratory Data Analytics into Machine Learning Modeling is using “caret” package, however for some step like imputation and feature selection also applied another packages, like “missForest” and “VIF”. The whole steps in this study is shown by this figure below.
 
 ![Flow Chart-Comparative Machine Learning Methode](https://user-images.githubusercontent.com/60123331/211374914-d16c1e1b-1cd7-4ac2-ab04-e088a93694c9.png)
 
